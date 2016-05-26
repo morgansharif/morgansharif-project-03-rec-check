@@ -9,15 +9,15 @@ var user_a = {
 var games = [
   {
     title: "The early bird",
-    content: "In software systems, it is often the early bird that makes the worm."
+    where: "In software systems, it is often the early bird that makes the worm."
   },
   {
     title: "Purpose",
-    content: "Every program has (at least) two purposes: the one for which it was written, and another for which it wasn't."
+    where: "Every program has (at least) two purposes: the one for which it was written, and another for which it wasn't."
   },
   {
     title: "Moral",
-    content: "One man's constant is another man's variable."
+    where: "One man's constant is another man's variable."
   }
 ]
 
