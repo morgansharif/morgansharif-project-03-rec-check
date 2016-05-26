@@ -1,5 +1,5 @@
 angular
-  .module('AuthSampleApp', [
+  .module('RecCheckApp', [
     'ngRoute',
     'satellizer'
   ])
