@@ -1,24 +1,24 @@
-PostsShowController.$inject = ["$location", "$http", "$routeParams"]; // minification protection
-function PostsShowController ($location, $http, $routeParams) {
+GamesShowController.$inject = ["$location", "$http", "$routeParams"]; // minification protection
+function GamesShowController ($location, $http, $routeParams) {
   var vm = this;
-  vm.post = {};
+  vm.game = {};
 
   var id = $routeParams.id;
-  get(); // fetch one post (show)
+  get(); // fetch one game (show)
 
   ////
 
   function get() {
     $http
-      .get('/api/posts/' + id)
+      .get('/api/games/' + id)
       .then(onGetSuccess, onGetError);
 
     function onGetSuccess(response){
-      vm.post = response.data;
+      vm.game = response.data;
     }
 
     function onGetError(response){
-      console.error("Failed to get post", response);
+      console.error("Failed to get game", response);
       $location.path("/");
     }
   };

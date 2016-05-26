@@ -2,15 +2,15 @@
 <hr>
 
 
-<p ng-if="!home.posts.length">No posts yet.</p>
+<p ng-if="!home.games.length">No games yet.</p>
 
-<div ng-if="home.posts.length">
-  <div ng-repeat="post in home.posts">
+<div ng-if="home.games.length">
+  <div ng-repeat="game in home.games">
     <p>
-      <strong><a ng-href="/posts/{{post._id}}">{{post.title}}</a></strong> - {{post.content}} -- {{post.user.displayName}}
+      <strong><a ng-href="/games/{{game._id}}">{{game.title}}</a></strong> - {{game.content}} -- {{game.user.displayName}}
     </p>
   </div>
 </div>
 
-<a class="btn btn-primary btn-block" href="/posts/new"
-    ng-show="main.currentUser.isLoggedIn()">Add New Post</a>
+<a class="btn btn-primary btn-block" href="/games/new"
+    ng-show="main.currentUser.isLoggedIn()">Add New Game</a>

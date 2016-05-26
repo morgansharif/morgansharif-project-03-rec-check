@@ -1,17 +1,17 @@
-PostsIndexController.$inject = ["$http"]; // minification protection
-function PostsIndexController ($http) {
+GamesIndexController.$inject = ["$http"]; // minification protection
+function GamesIndexController ($http) {
   var vm = this;
-  vm.posts = [];
+  vm.games = [];
 
-  query(); // fetch all the posts (index)
+  query(); // fetch all the games (index)
 
   ////
 
   function query() {
     $http
-      .get('/api/posts')
+      .get('/api/games')
       .then(function onSuccess(response) {
-        vm.posts = response.data;
+        vm.games = response.data;
       });
   }
 }

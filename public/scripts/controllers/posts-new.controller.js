@@ -1,22 +1,22 @@
-PostsNewController.$inject = ["$location", "$http"]; // minification protection
-function PostsNewController ($location, $http) {
+GamesNewController.$inject = ["$location", "$http"]; // minification protection
+function GamesNewController ($location, $http) {
   var vm = this;
   vm.create = create;
-  vm.post = {}; // form data
+  vm.game = {}; // form data
 
   ////
 
   function create() {
     $http
-      .post('/api/posts', vm.post)
+      .post('/api/games', vm.game)
       .then(onCreateSuccess, onCreateError);
 
     function onCreateSuccess(response){
-      $location.path('/posts/' + response.data._id)
+      $location.path('/games/' + response.data._id)
     }
 
     function onCreateError(response){
-      console.error("Failed to create post", response);
+      console.error("Failed to create game", response);
     }
   };
 }

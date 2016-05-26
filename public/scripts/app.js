@@ -4,10 +4,10 @@ angular
     'satellizer'
   ])
   .controller('MainController', MainController)
-  .controller('PostsIndexController', PostsIndexController)
-  .controller('PostsNewController', PostsNewController)
-  .controller('PostsShowController', PostsShowController)
-  .controller('PostsEditController', PostsEditController)
+  .controller('GamesIndexController', GamesIndexController)
+  .controller('GamesNewController', GamesNewController)
+  .controller('GamesShowController', GamesShowController)
+  .controller('GamesEditController', GamesEditController)
   .controller('LoginController', LoginController)
   .controller('SignupController', SignupController)
   .controller('LogoutController', LogoutController)
@@ -15,4 +15,3 @@ angular
   .service('UserService', UserService)
   .config(configRoutes)
   ;
-
