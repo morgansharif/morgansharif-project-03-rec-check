@@ -6,6 +6,10 @@ var gameSchema = new Schema({
   title: String,
   where: String,
   start: Date,
+  location: {
+    lat: String,
+    lng: String
+  }
 });
 
 var Game = mongoose.model('Game', gameSchema);
