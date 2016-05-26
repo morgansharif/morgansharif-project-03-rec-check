@@ -1,11 +1,11 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-var postSchema = new Schema({
+var gameSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: 'User' },
   title: String,
   content: String
 });
 
-var Post = mongoose.model('Post', postSchema);
-module.exports = Post;
+var Game = mongoose.model('Game', gameSchema);
+module.exports = Game;

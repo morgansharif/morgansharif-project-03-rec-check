@@ -52,7 +52,7 @@ function updateCurrentUser(req, res) {
 function showCurrentUser (req, res) {
   User.findById(req.user_id, function (err, user) {
     res.send(user);
-    // res.send(user.populate('posts'));
+    // res.send(user.populate('games'));
   });
 }
 

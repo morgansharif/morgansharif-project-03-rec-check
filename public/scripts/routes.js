@@ -9,8 +9,8 @@ function configRoutes($routeProvider, $locationProvider) {
 
   $routeProvider
     .when('/', {
-      templateUrl: 'templates/posts/index.html',
-      controller: 'PostsIndexController',
+      templateUrl: 'templates/games/index.html',
+      controller: 'GamesIndexController',
       controllerAs: 'home'
     })
     .when('/signup', {
@@ -44,26 +44,26 @@ function configRoutes($routeProvider, $locationProvider) {
         loginRequired: loginRequired
       }
     })
-    .when('/posts/new', {
-      templateUrl: 'templates/posts/new.html',
-      controller: 'PostsNewController',
-      controllerAs: 'postsNewCtrl',
+    .when('/games/new', {
+      templateUrl: 'templates/games/new.html',
+      controller: 'GamesNewController',
+      controllerAs: 'gamesNewCtrl',
       resolve: {
         loginRequired: loginRequired
       }
     })
-    .when('/posts/:id/edit', {
-      templateUrl: 'templates/posts/edit.html',
-      controller: 'PostsEditController',
-      controllerAs: 'postsEditCtrl',
+    .when('/games/:id/edit', {
+      templateUrl: 'templates/games/edit.html',
+      controller: 'GamesEditController',
+      controllerAs: 'gamesEditCtrl',
       resolve: {
         loginRequired: loginRequired
       }
     })
-    .when('/posts/:id', {
-      templateUrl: 'templates/posts/show.html',
-      controller: 'PostsShowController',
-      controllerAs: 'postsShowCtrl'
+    .when('/games/:id', {
+      templateUrl: 'templates/games/show.html',
+      controller: 'GamesShowController',
+      controllerAs: 'gamesShowCtrl'
     })
     .otherwise({redirectTo: '/'});
 
