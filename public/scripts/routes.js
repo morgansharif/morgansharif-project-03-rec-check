@@ -1,5 +1,5 @@
 configRoutes.$inject = ["$routeProvider", "$locationProvider", "uiGmapGoogleMapApiProvider"]; // minification protection
-function configRoutes($routeProvider, $locationProvider) {
+function configRoutes($routeProvider, $locationProvider, uiGmapGoogleMapApiProvider) {
 
   //this allows us to use routes without hash params!
   $locationProvider.html5Mode({
@@ -78,7 +78,7 @@ function configRoutes($routeProvider, $locationProvider) {
       }
     }
     uiGmapGoogleMapApiProvider.configure({
-      key: GOOGLE_API_KEY,
+      key: 'AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg',
       libraries: 'weather,geometry,visualization'
     });
 
