@@ -1,37 +1,65 @@
+"use strict";
+
 var db = require("./models");
 
 var user_a = {
-  email: "a",
+  email: "a@a.com",
   password: "a",
-  displayName: "Alan Perlis"
-}
+  displayName: "Alan Allenson"
+};
+var joiners = [
+  {
+    email: "b@b,com",
+    password: "b",
+    displayName: "Bob Bobson"
+  },
+  {
+    email: "c@c,com",
+    password: "c",
+    displayName: "Charles Charleston"
+  },
+  {
+    email: "d@d,com",
+    password: "d",
+    displayName: "Daniel Danson"
+  }
+];
 
 var games = [
   {
-    title: "The early bird",
-    content: "In software systems, it is often the early bird that makes the worm."
+    title: "Quick half-court game",
+    where: "That place you know about"
   },
   {
-    title: "Purpose",
-    content: "Every program has (at least) two purposes: the one for which it was written, and another for which it wasn't."
+    title: "H.O.R.S.E.",
+    where: "Somewhere where the horses won't get us."
   },
   {
-    title: "Moral",
-    content: "One man's constant is another man's variable."
+    title: "Proper Game",
+    where: "Super secret court."
   }
-]
+];
+
+var joiner_ids = [];
 
 db.User.remove({}, function(){
   db.Game.remove({}, function(){
+    for (let user_seed of joiners){
+      db.User.create(user_seed, function(err, user){
+        if (err) { return console.log(err); }
+        console.log(user._id);
+        joiner_ids.push(user._id);
+      });
+    }
     db.User.create(user_a, function(err, user){
       if (err || !user) { return console.log(err); }
-      var user_a_games = games.map(function(p){p.user = user._id; return p;})
+      var user_a_games = games.map(function(p){p.user = user._id, p.joined_users=joiner_ids; return p;});
       db.Game.create(user_a_games, function(err, games){
           if (err) { return console.log(err); }
-          console.log("Created", games.length, "games")
-          process.exit()
+          console.log("Created", games.length, "games");
+          process.exit();
         }
-      )
-    })
+      );
+    });
   });
 });

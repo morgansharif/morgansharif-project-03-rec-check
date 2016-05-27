@@ -7,7 +7,7 @@
 <div ng-if="home.games.length">
   <div ng-repeat="game in home.games">
     <p>
-      <strong><a ng-href="/games/{{game._id}}">{{game.title}}</a></strong> - {{game.content}} -- {{game.user.displayName}}
+      <strong><a ng-href="/games/{{game._id}}">{{game.title}}</a></strong> - {{game.where}} -- {{game.user.displayName}}
     </p>
   </div>
 </div>
