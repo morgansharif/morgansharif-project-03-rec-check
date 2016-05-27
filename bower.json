@@ -1,0 +1,17 @@
+{
+  "name": "reccheck",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "morgansharif <morgan.sharif@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/morgansharif/morgansharif-project-03-rec-check",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
