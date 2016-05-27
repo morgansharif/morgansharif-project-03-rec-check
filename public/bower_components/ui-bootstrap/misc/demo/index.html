@@ -16,7 +16,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/<%= ngversion %>/angular-touch.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/<%= ngversion %>/angular-sanitize.js"></script>
     <script src="ui-bootstrap-tpls-<%= pkg.version%>.min.js"></script>
-    <script src="assets/plunker.js"></script>
+    <script src="assets/RecCheckApp.js"></script>
     <script src="assets/app.js"></script>
 
     <link href="//netdna.bootstrapcdn.com/bootstrap/<%= bsversion %>/css/bootstrap.min.css" rel="stylesheet"/>
@@ -181,7 +181,7 @@
                        <pre><code>angular.module('myModule', ['ui.bootstrap']);</code></pre>
                     </p>
                     <p>If you are using UI Bootstrap in the CSP mode, e.g. in an extension, make sure you link to the <code>ui-bootstrap-csp.css</code> in your HTML manually.</p>
-                    <p>You can fork one of the plunkers from this page to see a working example of what is described here.</p>
+                    <p>You can fork one of the RecCheckApps from this page to see a working example of what is described here.</p>
                     <h3>Migration to prefixes</h3>
                     <p>Since version 0.14.0 we started to prefix all our components. If you are upgrading from ui-bootstrap 0.13.4 or earlier,
                     check our <a href="https://github.com/angular-ui/bootstrap/wiki/Migration-guide-for-prefixes">migration guide</a>.</p>
@@ -193,7 +193,7 @@
                     <p>Please check <a href="https://github.com/angular-ui/bootstrap/wiki/FAQ" target="_blank">our FAQ section</a> for common problems / solutions.</p>
                     <h3>Reading the documentation</h3>
                     <p>
-                        Each of the components provided in <code>ui-bootstrap</code> have documentation and interactive Plunker examples.
+                        Each of the components provided in <code>ui-bootstrap</code> have documentation and interactive RecCheckApp examples.
                     </p>
                     <p>
                         For the directives, we list the different attributes with their default values. In addition to this, some settings have a badge on it:
@@ -230,18 +230,18 @@
                         </div>
                         <hr>
                         <div class="row code">
-                            <div class="col-md-12" ng-controller="PlunkerCtrl">
+                            <div class="col-md-12" ng-controller="RecCheckAppCtrl">
                                 <div class="pull-right">
-                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('<%= ngversion%>', '<%= bsversion %>', '<%= pkg.version%>', '<%= module.name %>')"><i class="glyphicon glyphicon-edit"></i> Edit in plunker</button>
+                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('<%= ngversion%>', '<%= bsversion %>', '<%= pkg.version%>', '<%= module.name %>')"><i class="glyphicon glyphicon-edit"></i> Edit in RecCheckApp</button>
                                 </div>
                                 <uib-tabset active="activeTab">
                                     <uib-tab index="0" heading="Markup">
-                                        <div plunker-content="markup">
+                                        <div RecCheckApp-content="markup">
                                             <pre ng-non-bindable><code data-language="html"><%- module.docs.html %></code></pre>
                                         </div>
                                     </uib-tab>
                                     <uib-tab index="1" heading="JavaScript">
-                                        <div plunker-content="javascript">
+                                        <div RecCheckApp-content="javascript">
                                             <pre ng-non-bindable><code data-language="javascript"><%- module.docs.js %></code></pre>
                                         </div>
                                     </uib-tab>

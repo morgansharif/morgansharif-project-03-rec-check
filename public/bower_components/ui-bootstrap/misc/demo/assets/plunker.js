@@ -1,4 +1,4 @@
-angular.module('plunker', [])
+angular.module('RecCheckApp', [])
 
   .factory('plunkGenerator', function ($document) {
 
@@ -41,7 +41,7 @@ angular.module('plunker', [])
     };
   })
 
-  .controller('PlunkerCtrl', function ($scope, plunkGenerator) {
+  .controller('RecCheckAppCtrl', function ($scope, plunkGenerator) {
 
     $scope.content = {};
 
@@ -50,10 +50,10 @@ angular.module('plunker', [])
     };
   })
 
-  .directive('plunkerContent', function () {
+  .directive('RecCheckAppContent', function () {
     return {
       link:function (scope, element, attrs) {
-        scope.content[attrs.plunkerContent] = element.text().trim();
+        scope.content[attrs.RecCheckAppContent] = element.text().trim();
       }
     }
   });

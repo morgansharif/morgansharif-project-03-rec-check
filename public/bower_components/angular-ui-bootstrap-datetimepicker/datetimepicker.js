@@ -87,7 +87,7 @@ angular.module('ui.bootstrap.datetimepicker', ["ui.bootstrap.dateparser", "ui.bo
             "<input class=\"form-control\" type=\"text\" " +
             "ng-change=\"date_change($event)\" " +
             "is-open=\"innerDateOpened\" " +
-            "datepicker-options=\"dateOptions\" " + 
+            "datepicker-options=\"dateOptions\" " +
             "uib-datepicker-popup=\"{{dateFormat}}\"" +
             "ng-model=\"ngModel\" " + [
               ["dayFormat"],
@@ -137,8 +137,8 @@ angular.module('ui.bootstrap.datetimepicker', ["ui.bootstrap.dateparser", "ui.bo
                 $scope.dateOptions[dateAttr] = date;
                 if ($scope[dateAttr]) {
                   $scope[dateAttr] = date;
-                } 
-              }, true); 
+                }
+              }, true);
             }
             $scope.date_change = function () {
               // If we changed the date only, set the time (h,m) on it.
@@ -152,7 +152,7 @@ angular.module('ui.bootstrap.datetimepicker', ["ui.bootstrap.dateparser", "ui.bo
             };
 
             $scope.time_change = function () {
-              
+
               if ($scope.ngModel && $scope.time) {
                 // convert from ISO format to Date
                 if (!($scope.ngModel instanceof Date)) $scope.ngModel = new Date($scope.ngModel);
@@ -171,13 +171,13 @@ angular.module('ui.bootstrap.datetimepicker', ["ui.bootstrap.dateparser", "ui.bo
             });
             $scope.dateOptions = angular.isDefined($scope.dateOptions) ? $scope.dateOptions : {};
             $scope.createDateOptionsWatch('minDate');
-            $scope.createDateOptionsWatch('maxDate'); 
+            $scope.createDateOptionsWatch('maxDate');
             $scope.dateOptions.dateDisabled = $scope.dateDisabled;
           }
         ],
         link: function (scope, element, attrs, ctrl) {
           var firstTimeAssign = true;
- 
+
           scope.$watch(function () {
             return scope.ngModel;
           }, function (newTime) {
@@ -227,8 +227,8 @@ angular.module('ui.bootstrap.datetimepicker', ["ui.bootstrap.dateparser", "ui.bo
           scope.$watch('innerDateOpened', function (value) {
             if (angular.isDefined(scope.dateOpened)) {
               scope.dateOpened = value;
-            } 
-          });   
+            }
+          });
         }
       }
     }

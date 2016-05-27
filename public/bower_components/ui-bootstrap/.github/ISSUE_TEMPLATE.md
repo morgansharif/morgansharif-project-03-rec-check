@@ -4,7 +4,7 @@ existing issues (both open and closed) prior to opening any new issue and ensure
 
 ### Bug description:
 
-### Link to minimally-working plunker that reproduces the issue:
+### Link to minimally-working RecCheckApp that reproduces the issue:
 
 ### Version of Angular, UIBS, and Bootstrap
 

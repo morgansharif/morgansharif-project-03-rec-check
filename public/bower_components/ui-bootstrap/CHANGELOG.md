@@ -763,7 +763,7 @@ $scope.typeaheadContainer = angular.element(document.querySelector('#typeaheadCo
   * allow suppression of log error ([bab1d375](https://github.com/angular-ui/bootstrap/commit/bab1d375), closes [#3836](https://github.com/angular-ui/bootstrap/issues/3836), [#4115](https://github.com/angular-ui/bootstrap/issues/4115))
 * **docs:**
   * add explanation of eye icon ([265d429b](https://github.com/angular-ui/bootstrap/commit/265d429b), closes [#4120](https://github.com/angular-ui/bootstrap/issues/4120))
-  * add ngAnimate Plunker support ([a8a22cff](https://github.com/angular-ui/bootstrap/commit/a8a22cff), closes [#3648](https://github.com/angular-ui/bootstrap/issues/3648), [#4072](https://github.com/angular-ui/bootstrap/issues/4072))
+  * add ngAnimate RecCheckApp support ([a8a22cff](https://github.com/angular-ui/bootstrap/commit/a8a22cff), closes [#3648](https://github.com/angular-ui/bootstrap/issues/3648), [#4072](https://github.com/angular-ui/bootstrap/issues/4072))
 * **modal:**
   * add ability to change class on body ([5a28ff76](https://github.com/angular-ui/bootstrap/commit/5a28ff76), closes [#2633](https://github.com/angular-ui/bootstrap/issues/2633), [#4132](https://github.com/angular-ui/bootstrap/issues/4132))
   * allow users to resolve with strings ([89368856](https://github.com/angular-ui/bootstrap/commit/89368856), closes [#2676](https://github.com/angular-ui/bootstrap/issues/2676), [#4124](https://github.com/angular-ui/bootstrap/issues/4124))

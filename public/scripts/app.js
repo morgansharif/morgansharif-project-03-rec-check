@@ -1,7 +1,9 @@
 angular
   .module('RecCheckApp', [
     'ngRoute',
-    'satellizer'
+    'satellizer',
+    'ui.bootstrap',
+    'ui.bootstrap.datetimepicker'
   ])
   .controller('MainController', MainController)
   .controller('GamesIndexController', GamesIndexController)
@@ -12,6 +14,7 @@ angular
   .controller('SignupController', SignupController)
   .controller('LogoutController', LogoutController)
   .controller('ProfileController', ProfileController)
+  .controller('DateTimePickerController', DateTimePickerController)
   .service('UserService', UserService)
   .config(configRoutes)
   ;

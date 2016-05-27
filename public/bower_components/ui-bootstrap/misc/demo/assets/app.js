@@ -1,5 +1,5 @@
 /* global FastClick, smoothScroll */
-angular.module('ui.bootstrap.demo', ['ui.bootstrap', 'plunker', 'ngTouch', 'ngAnimate', 'ngSanitize'], function($httpProvider){
+angular.module('ui.bootstrap.demo', ['ui.bootstrap', 'RecCheckApp', 'ngTouch', 'ngAnimate', 'ngSanitize'], function($httpProvider){
   if (!!window.FastClick) {
     FastClick.attach(document.body);
   }
