@@ -8,8 +8,7 @@
   <div ng-repeat="game in home.games">
     <p>
       <strong><a ng-href="/games/{{game._id}}">{{game.title}}</a></strong> - {{game.where}} -- {{game.user.displayName}}
-      <span>{{gamesNewCtrl.game.start | date:'dd MMM yyyy hh:mm ' }}</span>
-
+      <span>[{{game.start | date:'dd MMM yyyy hh:mm ' }}]</span>
     </p>
   </div>
 </div>
