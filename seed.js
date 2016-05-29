@@ -28,15 +28,21 @@ var joiners = [
 var games = [
   {
     title: "Quick half-court game",
-    where: "That place you know about"
+    where: "That place you know about",
+    location: { lat: 37.78, lng: -122.44 },
+    start: new Date('2016-05-09T08:00:00.000Z')
   },
   {
     title: "H.O.R.S.E.",
-    where: "Somewhere where the horses won't get us."
+    where: "Somewhere where the horses won't get us.",
+    location: { lat: 37.795581, lng: -122.393411 },
+    start: new Date('2016-05-09T10:00:00.000Z')
   },
   {
     title: "Proper Game",
-    where: "Super secret court."
+    where: "Super secret court.",
+    location: { lat: 37.826978, lng: -122.42295 },
+    start: new Date('2016-05-30T09:15:00.000Z')
   }
 ];
 
