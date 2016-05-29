@@ -1,7 +1,8 @@
 angular
   .module('RecCheckApp', [
     'ngRoute',
-    'satellizer'
+    'satellizer',
+    'uiGmapgoogle-maps'
   ])
   .controller('MainController', MainController)
   .controller('GamesIndexController', GamesIndexController)

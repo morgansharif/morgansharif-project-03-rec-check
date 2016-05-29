@@ -1,0 +1,13 @@
+body {
+  height: 100vh;
+}
+
+.angular-google-map-container { min-height: calc(100vh - 175px);
+}
+games-index-map { height: 200%;
+}
+
+games-list {
+  height: 100%;
+  overflow: scrollable;
+}
