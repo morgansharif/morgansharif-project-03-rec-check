@@ -2,10 +2,10 @@
 <hr>
 <div id="games-index-map" class="col-sm-8 col-xs-12">
   <ui-gmap-google-map center='home.map.center' zoom='home.map.zoom'>
-  <ui-gmap-marker ng-repeat="game in home.games" coords="{latitude: home.games.location.lat, longitude: home.games.location.lng}" idkey='home.game._id'>
+  <ui-gmap-marker ng-repeat="game in home.games" coords="{latitude: game.location.lat, longitude: game.location.lng}" idkey='game._id'>
 
     <ui-gmap-window options="windowOptions" closeClick="closeClick()">
-      {{home.game.title}}
+      {{game.title}}
     </ui-gmap-window>
   </ui-gmap-marker>
   </ui-gmap-google-map>
@@ -24,6 +24,8 @@
         <a ng-href="/games/{{game._id}}">
           <span>{{game.title}}</span><br />
         </a>
+        {{game.location.lat}}, {{game.location.lng}}
+
         <span>{{game.where}}</span><br />
         <span>{{game.start | date:'MMM dd hh:mm a' }}</span>
       </div>
