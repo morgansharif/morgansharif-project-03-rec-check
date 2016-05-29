@@ -1,17 +1,37 @@
-<h2>Microblog</h2>
+<h2>Find a game!</h2>
 <hr>
+<div id="games-index-map" class="col-sm-8 col-xs-12">
+  <ui-gmap-google-map center='home.map.center' zoom='home.map.zoom'>
+  <ui-gmap-marker ng-repeat="game in home.games" coords="{latitude: home.games.location.lat, longitude: home.games.location.lng}" idkey='home.game._id'>
 
-
-<p ng-if="!home.games.length">No games yet.</p>
-
-<div ng-if="home.games.length">
-  <div ng-repeat="game in home.games">
+    <ui-gmap-window options="windowOptions" closeClick="closeClick()">
+      {{home.game.title}}
+    </ui-gmap-window>
+  </ui-gmap-marker>
+  </ui-gmap-google-map>
+</div>
+<div id="games-list" ng-if="home.games.length" class="col-sm-4 col-xs-12">
+  <div class="row">
+    <p ng-if="!home.games.length">No games yet.</p>
+    <a class="btn btn-primary btn-block" href="/games/new"
+        ng-show="main.currentUser.isLoggedIn()">Add New Game</a>
+    <hr />
+  </div>
+  <div class="row" ng-repeat="game in home.games">
+    <hr />
     <p>
-      <strong><a ng-href="/games/{{game._id}}">{{game.title}}</a></strong> - {{game.where}} -- {{game.user.displayName}}
-      <span>[{{game.start | date:'dd MMM yyyy hh:mm ' }}]</span>
+      <div class="col-xs-10">
+        <a ng-href="/games/{{game._id}}">
+          <span>{{game.title}}</span><br />
+        </a>
+        <span>{{game.where}}</span><br />
+        <span>{{game.start | date:'MMM dd hh:mm a' }}</span>
+      </div>
     </p>
+    <a ng-href="/games/{{game._id}}">
+      <div id="arrow" class="col-xs-2">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      </div>
+    </a>
   </div>
 </div>
-
-<a class="btn btn-primary btn-block" href="/games/new"
-    ng-show="main.currentUser.isLoggedIn()">Add New Game</a>
