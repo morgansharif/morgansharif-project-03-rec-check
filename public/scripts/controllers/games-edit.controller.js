@@ -6,11 +6,15 @@ function GamesEditController ($location, $http, $routeParams, UserService) {
   vm.game = {}; // form data
   var id = $routeParams.id;
   vm.currentUser = UserService.currentUser();
+  vm.is_joined = is_joined;
   vm.map = { center: { latitude: 37.78, longitude: -122.44 }, zoom: 8 };
 
   get(); // fetch one game (show)
 
   ////
+  function is_joined(){
+    return vm.game.joined_users.includes(vm.currentUser);
+  }
 
   function update() {
     $http
