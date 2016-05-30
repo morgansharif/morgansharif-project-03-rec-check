@@ -1,6 +1,19 @@
 <div class="container">
-  <div class="row">
 
+  <div class="row">
+    <div id="games-map" class="col-xs-12">
+      <ui-gmap-google-map center='gamesEditCtrl.map.center' zoom='gamesEditCtrl.map.zoom'>
+      <ui-gmap-marker coords="{latitude: gamesEditCtrl.game.location.lat, longitude: gamesEditCtrl.game.location.lng}" idkey='gamesEditCtrl.game._id'>
+
+        <ui-gmap-window options="windowOptions" closeClick="closeClick()">
+          {{GamesEditCtrl.game.title}}
+        </ui-gmap-window>
+      </ui-gmap-marker>
+      </ui-gmap-google-map>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="col-xs-10">
       <h2>{{gamesEditCtrl.game.title}}</h2>
       <p>{{gamesEditCtrl.game.where}}</p>
@@ -21,9 +34,7 @@
     </div>
   </div>
 
-  <div class="row">
 
-  </div>
 
 
 
