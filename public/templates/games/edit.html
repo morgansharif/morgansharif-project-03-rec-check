@@ -1,14 +1,30 @@
-<div class="pull-right col-xl-4">
+<div class="container">
+  <div class="row">
 
-  <a ng-show="isAuthor = (gamesEditCtrl.game.user._id === main.currentUser.user_id)" class="btn btn-danger col-xl-2" ng-click="gamesEditCtrl.destroy()">Cancel Game</a>
-  <hr>
+    <div class="col-xs-10">
+      <h2>{{gamesEditCtrl.game.title}}</h2>
+      <p>{{gamesEditCtrl.game.where}}</p>
+      <form ng-show="editing" ng-submit="gamesEditCtrl.update()">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Title" ng-model="gamesEditCtrl.game.title">
+          <input type="submit" value="Update Game" class="btn btn-block btn-info">
+        </div>
+      </form>
+    </div>
+
+    <div class="col-xl-4">
+      <div ng-show="gamesEditCtrl.isauthor">
+        <a class="btn btn-danger col-xl-2" ng-click="gamesEditCtrl.destroy()">Cancel Game</a>
+        <a ng-hide="editing" class="btn btn-primary" ng-click="editing=true">Edit</a>
+        <a ng-show="editing" class="btn btn-primary" ng-click="editing=false">Undo</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+  </div>
+
+
+
 </div>
-<form ng-submit="gamesEditCtrl.update()">
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Title" ng-model="gamesEditCtrl.game.title">
-  </div>
-  <div class="form-group">
-    <textarea class="form-control" placeholder="Content" ng-model="gamesEditCtrl.game.where"></textarea>
-  </div>
-  <input type="submit" value="Update Game" class="btn btn-block btn-info">
-</form>
