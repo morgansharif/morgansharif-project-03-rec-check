@@ -15,8 +15,8 @@
     <div class="col-xl-4">
       <div ng-show="gamesEditCtrl.isauthor">
         <a class="btn btn-danger col-xl-2" ng-click="gamesEditCtrl.destroy()">Cancel Game</a>
+        <a ng-show="editing" class="btn btn-primary" ng-href="/">Undo</a>
         <a ng-hide="editing" class="btn btn-primary" ng-click="editing=true">Edit</a>
-        <a ng-show="editing" class="btn btn-primary" ng-click="editing=false">Undo</a>
       </div>
     </div>
   </div>
