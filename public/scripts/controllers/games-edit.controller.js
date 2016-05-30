@@ -1,10 +1,11 @@
-GamesEditController.$inject = ["$location", "$http", "$routeParams"]; // minification protection
-function GamesEditController ($location, $http, $routeParams) {
+GamesEditController.$inject = ["$location", "$http", "$routeParams", "UserService"]; // minification protection
+function GamesEditController ($location, $http, $routeParams, UserService) {
   var vm = this;
   vm.update = update;
   vm.destroy = destroy;
   vm.game = {}; // form data
   var id = $routeParams.id;
+  vm.currentUser = UserService.currentUser();
   get(); // fetch one game (show)
 
   ////
@@ -44,6 +45,7 @@ function GamesEditController ($location, $http, $routeParams) {
 
     function onGetSuccess(response){
       vm.game = response.data;
+      vm.isauthor = false || vm.game.user._id === vm.currentUser.user_id;
     }
 
     function onGetError(response){
