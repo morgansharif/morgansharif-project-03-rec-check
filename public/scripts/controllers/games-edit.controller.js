@@ -6,6 +6,8 @@ function GamesEditController ($location, $http, $routeParams, UserService) {
   vm.game = {}; // form data
   var id = $routeParams.id;
   vm.currentUser = UserService.currentUser();
+  vm.map = { center: { latitude: 37.78, longitude: -122.44 }, zoom: 8 };
+
   get(); // fetch one game (show)
 
   ////
@@ -46,6 +48,7 @@ function GamesEditController ($location, $http, $routeParams, UserService) {
     function onGetSuccess(response){
       vm.game = response.data;
       vm.isauthor = false || vm.game.user._id === vm.currentUser.user_id;
+      vm.map = { center: { latitude: vm.game.location.lat, longitude: vm.game.location.lng }, zoom: 16 };
     }
 
     function onGetError(response){
