@@ -4,7 +4,6 @@ function GamesEditController ($location, $http, $routeParams) {
   vm.update = update;
   vm.destroy = destroy;
   vm.game = {}; // form data
-
   var id = $routeParams.id;
   get(); // fetch one game (show)
 

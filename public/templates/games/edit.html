@@ -1,6 +1,6 @@
 <div class="pull-right col-xl-4">
-  <a class="btn btn-warning col-xl-2" ng-href="/">Discard Changes</a>
-  <a class="btn btn-danger col-xl-2" ng-click="gamesEditCtrl.destroy()">Delete Game</a>
+
+  <a ng-show="isAuthor = (gamesEditCtrl.game.user._id === main.currentUser.user_id)" class="btn btn-danger col-xl-2" ng-click="gamesEditCtrl.destroy()">Cancel Game</a>
   <hr>
 </div>
 <form ng-submit="gamesEditCtrl.update()">
