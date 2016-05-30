@@ -2,12 +2,16 @@ body {
   height: 100vh;
 }
 
-.angular-google-map-container { min-height: calc(100vh - 175px);
-}
-games-index-map { height: 200%;
+#games-index-map .angular-google-map-container {
+  min-height: calc(100vh - 175px);
 }
 
-games-list {
-  height: 100%;
-  overflow: scrollable;
+#games-list {
+  max-height: calc(100vh - 175px);
+  overflow-y: scroll
+}
+
+#games-map .angular-google-map-container {
+  height: calc(100vh - 200px);
+  min-height: 200px;
 }

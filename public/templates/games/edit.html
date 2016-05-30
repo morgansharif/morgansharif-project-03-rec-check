@@ -1,14 +1,41 @@
-<div class="pull-right col-xl-4">
-  <a class="btn btn-warning col-xl-2" ng-href="/">Discard Changes</a>
-  <a class="btn btn-danger col-xl-2" ng-click="gamesEditCtrl.destroy()">Delete Game</a>
-  <hr>
+<div class="container">
+
+  <div class="row">
+    <div id="games-map" class="col-xs-12">
+      <ui-gmap-google-map center='gamesEditCtrl.map.center' zoom='gamesEditCtrl.map.zoom'>
+      <ui-gmap-marker coords="{latitude: gamesEditCtrl.game.location.lat, longitude: gamesEditCtrl.game.location.lng}" idkey='gamesEditCtrl.game._id'>
+
+        <ui-gmap-window options="windowOptions" closeClick="closeClick()">
+          {{GamesEditCtrl.game.title}}
+        </ui-gmap-window>
+      </ui-gmap-marker>
+      </ui-gmap-google-map>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-10">
+      <h2>{{gamesEditCtrl.game.title}}</h2>
+      <p>{{gamesEditCtrl.game.where}}</p>
+      <form ng-show="editing" ng-submit="gamesEditCtrl.update()">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Title" ng-model="gamesEditCtrl.game.title">
+          <input type="submit" value="Update Game" class="btn btn-block btn-info">
+        </div>
+      </form>
+    </div>
+
+    <div class="col-xl-4">
+      <div ng-show="gamesEditCtrl.isauthor">
+        <a class="btn btn-danger col-xl-2" ng-click="gamesEditCtrl.destroy()">Cancel Game</a>
+        <a ng-show="editing" class="btn btn-primary" ng-href="/">Undo</a>
+        <a ng-hide="editing" class="btn btn-primary" ng-click="editing=true">Edit</a>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
 </div>
-<form ng-submit="gamesEditCtrl.update()">
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Title" ng-model="gamesEditCtrl.game.title">
-  </div>
-  <div class="form-group">
-    <textarea class="form-control" placeholder="Content" ng-model="gamesEditCtrl.game.where"></textarea>
-  </div>
-  <input type="submit" value="Update Game" class="btn btn-block btn-info">
-</form>

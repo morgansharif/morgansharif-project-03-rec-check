@@ -27,6 +27,7 @@ function show(req, res){
   Game
     .findById(req.params.id)
     .populate('user')
+    .populate('joined_users')
     .exec(function(err, found_game){
       if (err || !found_game) {
         return res.status(404).send({message: 'Game not found.'})
