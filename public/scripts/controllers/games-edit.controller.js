@@ -22,7 +22,13 @@ function GamesEditController ($location, $http, $routeParams, UserService) {
   }
 
   function join_game(){
-    console.log("joined!");
+    console.log("JOIN GAME");
+    if (!is_joined()){
+      // add current user id to joined users list
+      vm.game.joined_users.push(vm.currentUser.user_id);
+      // update game
+      update();
+    }
   }
 
   function leave_game(){
