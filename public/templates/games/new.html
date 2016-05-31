@@ -1,13 +1,21 @@
-<form ng-submit="gamesNewCtrl.create()">
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Title" ng-model="gamesNewCtrl.game.title">
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <form ng-submit="gamesNewCtrl.create()">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Title" ng-model="gamesNewCtrl.game.title">
+      </div>
+      <div class="form-group">
+        <textarea class="form-control" placeholder="Location" ng-model="gamesNewCtrl.game.where"></textarea>
+      </div>
+      <div class="form-group">
+        Start Time: <span>{{gamesNewCtrl.game.start | date:'dd MMM yyyy hh:mm a' }}</span>
+        <br />
+        <input type="datetime-local" ng-model="gamesNewCtrl.game.start"/>
+      </div>
+      <input type="submit" value="Create Game" class="btn btn-block btn-info">
+    </form>
   </div>
-  <div class="form-group">
-    <textarea class="form-control" placeholder="Content" ng-model="gamesNewCtrl.game.where"></textarea>
-  </div>
-  <div class="form-group">
-    <span>{{gamesNewCtrl.game.start | date:'dd MMM yyyy hh:mm ' }}</span>
-    <input type="datetime-local" ng-model="gamesNewCtrl.game.start"/>
-  </div>
-  <input type="submit" value="Create Game" class="btn btn-block btn-info">
-</form>
+</div>
+<div class="row">
+
+</div>
