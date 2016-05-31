@@ -2,7 +2,8 @@ angular
   .module('RecCheckApp', [
     'ngRoute',
     'satellizer',
-    'uiGmapgoogle-maps'
+    'uiGmapgoogle-maps',
+    'google.places'
   ])
   .controller('MainController', MainController)
   .controller('GamesIndexController', GamesIndexController)
