@@ -28,7 +28,6 @@ function GamesEditController ($location, $http, $routeParams, UserService) {
   function leave_game(){
     console.log("LEAVE GAME");
     // find index of currentUser in game.joined_users of
-    // var joined_keys = vm.game.joined_users.map(function(user) {return user._id;});
     var user_index = vm.game.joined_users.findIndex(function(id, index) {
       if (id === vm.currentUser.user_id){
         return true;
