@@ -1,15 +1,18 @@
 GamesEditController.$inject = ["$location", "$http", "$routeParams", "UserService"]; // minification protection
 function GamesEditController ($location, $http, $routeParams, UserService) {
   var vm = this;
+  // operations
   vm.update = update;
   vm.destroy = destroy;
-  vm.game = {}; // form data
-  var id = $routeParams.id;
-  vm.currentUser = UserService.currentUser();
-  vm.is_joined = is_joined;
-  vm.map = { center: { latitude: 37.78, longitude: -122.44 }, zoom: 8 };
   vm.join_game = join_game;
+  vm.leave_game = leave_game;
 
+  // values
+  vm.currentUser = UserService.currentUser();
+  vm.is_joined = is_joined;  //boolean function checks if current user is in joined_users
+  vm.game = {}; // form data
+  vm.map = { center: { latitude: 37.78, longitude: -122.44 }, zoom: 8 };
+  var id = $routeParams.id;
   get(); // fetch one game (show)
 
   ////
@@ -17,12 +20,34 @@ function GamesEditController ($location, $http, $routeParams, UserService) {
     if (!vm.game._id) {
       return false;
     }
-    var joined_keys = vm.game.joined_users.map(function(user) {return user._id;});
-    var is_joined = joined_keys.includes(vm.currentUser.user_id);
+    var joined_ids = vm.game.joined_users.map(function(user) {return user._id;});
+    var is_joined = joined_ids.includes(vm.currentUser.user_id);
     return is_joined;
   }
+
   function join_game(){
     console.log("joined!");
+  }
+
+  function leave_game(){
+    console.log("LEAVE GAME");
+    debugger;
+    // find index of currentUser in game.joined_users of
+    var joined_keys = vm.game.joined_users.map(function(user) {return user._id;});
+    var user_index = joined_keys.findIndex(function(id, index) {
+      if (id === vm.currentUser.user_id){
+        return true;
+      }
+      return false;
+    });
+    // return if user is not found in joined_users
+    if (user_index === -1){
+      return;
+    }
+    // remove user from joined user list
+    vm.game.joined_users = joined_keys.splice(user_index, 1);
+    // update game
+    update();
   }
 
   function update() {
