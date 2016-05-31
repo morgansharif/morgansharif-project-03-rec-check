@@ -1,16 +1,54 @@
 GamesEditController.$inject = ["$location", "$http", "$routeParams", "UserService"]; // minification protection
 function GamesEditController ($location, $http, $routeParams, UserService) {
   var vm = this;
+  vm.currentUser = UserService.currentUser();
+  vm.is_joined = is_joined;  //boolean function checks if current user is in joined_users
   vm.update = update;
   vm.destroy = destroy;
+  vm.join_game = join_game;
+  vm.leave_game = leave_game;
   vm.game = {}; // form data
-  var id = $routeParams.id;
-  vm.currentUser = UserService.currentUser();
   vm.map = { center: { latitude: 37.78, longitude: -122.44 }, zoom: 8 };
-
+  var id = $routeParams.id;
   get(); // fetch one game (show)
 
   ////
+  function is_joined(){
+    if (!vm.game._id) {
+      return false;
+    }
+    // var joined_ids = vm.game.joined_users.map(function(user) {return user._id;});
+    return vm.game.joined_users.includes(vm.currentUser.user_id);
+  }
+
+  function join_game(){
+    console.log("JOIN GAME");
+    if (!is_joined()){
+      // add current user id to joined users list
+      vm.game.joined_users.push(vm.currentUser.user_id);
+      // update game
+      update();
+    }
+  }
+
+  function leave_game(){
+    console.log("LEAVE GAME");
+    // find index of currentUser in game.joined_users of
+    var user_index = vm.game.joined_users.findIndex(function(id, index) {
+      if (id === vm.currentUser.user_id){
+        return true;
+      }
+      return false;
+    });
+    // return if user is not found in joined_users
+    if (user_index === -1){
+      return;
+    }
+    // remove user from joined user list
+    vm.game.joined_users.splice(user_index, 1);
+    // update game
+    update();
+  }
 
   function update() {
     $http
@@ -18,7 +56,7 @@ function GamesEditController ($location, $http, $routeParams, UserService) {
       .then(onUpdateSuccess, onUpdateError);
 
     function onUpdateSuccess(response){
-      $location.path("/games/" + id);
+      $location.path("/games/" + id + "/edit");
     }
 
     function onUpdateError(response){

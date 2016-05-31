@@ -27,7 +27,7 @@ function show(req, res){
   Game
     .findById(req.params.id)
     .populate('user')
-    .populate('joined_users')
+    // .populate('joined_users')
     .exec(function(err, found_game){
       if (err || !found_game) {
         return res.status(404).send({message: 'Game not found.'})
@@ -42,9 +42,9 @@ function update(req, res){
     _id: req.params.id
   };
 
-  if (req.user_id) {
-    query.user = req.user_id;
-  }
+  // if (req.user_id) {
+  //   query.user = req.user_id;
+  // }
 
   Game
     .findOneAndUpdate(query, req.body)
