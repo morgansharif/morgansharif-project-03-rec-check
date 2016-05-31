@@ -1,15 +1,12 @@
 GamesEditController.$inject = ["$location", "$http", "$routeParams", "UserService"]; // minification protection
 function GamesEditController ($location, $http, $routeParams, UserService) {
   var vm = this;
-  // operations
+  vm.currentUser = UserService.currentUser();
+  vm.is_joined = is_joined;  //boolean function checks if current user is in joined_users
   vm.update = update;
   vm.destroy = destroy;
   vm.join_game = join_game;
   vm.leave_game = leave_game;
-
-  // values
-  vm.currentUser = UserService.currentUser();
-  vm.is_joined = is_joined;  //boolean function checks if current user is in joined_users
   vm.game = {}; // form data
   vm.map = { center: { latitude: 37.78, longitude: -122.44 }, zoom: 8 };
   var id = $routeParams.id;
@@ -20,9 +17,8 @@ function GamesEditController ($location, $http, $routeParams, UserService) {
     if (!vm.game._id) {
       return false;
     }
-    var joined_ids = vm.game.joined_users.map(function(user) {return user._id;});
-    var is_joined = joined_ids.includes(vm.currentUser.user_id);
-    return is_joined;
+    // var joined_ids = vm.game.joined_users.map(function(user) {return user._id;});
+    return vm.game.joined_users.includes(vm.currentUser.user_id);
   }
 
   function join_game(){
@@ -31,10 +27,9 @@ function GamesEditController ($location, $http, $routeParams, UserService) {
 
   function leave_game(){
     console.log("LEAVE GAME");
-    debugger;
     // find index of currentUser in game.joined_users of
-    var joined_keys = vm.game.joined_users.map(function(user) {return user._id;});
-    var user_index = joined_keys.findIndex(function(id, index) {
+    // var joined_keys = vm.game.joined_users.map(function(user) {return user._id;});
+    var user_index = vm.game.joined_users.findIndex(function(id, index) {
       if (id === vm.currentUser.user_id){
         return true;
       }
@@ -45,7 +40,7 @@ function GamesEditController ($location, $http, $routeParams, UserService) {
       return;
     }
     // remove user from joined user list
-    vm.game.joined_users = joined_keys.splice(user_index, 1);
+    vm.game.joined_users.splice(user_index, 1);
     // update game
     update();
   }
@@ -56,7 +51,7 @@ function GamesEditController ($location, $http, $routeParams, UserService) {
       .then(onUpdateSuccess, onUpdateError);
 
     function onUpdateSuccess(response){
-      $location.path("/games/" + id);
+      $location.path("/games/" + id + "/edit");
     }
 
     function onUpdateError(response){
