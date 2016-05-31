@@ -2,6 +2,7 @@ GamesNewController.$inject = ["$location", "$http"]; // minification protection
 function GamesNewController ($location, $http) {
   var vm = this;
   vm.create = create;
+  vm.map = { center: { latitude: 37.78, longitude: -122.44 }, zoom: 8 };
   vm.game = {}; // form data
 
   ////

@@ -1,13 +1,32 @@
-<form ng-submit="gamesNewCtrl.create()">
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Title" ng-model="gamesNewCtrl.game.title">
+<div class="row">
+  <div id="games-index-map" class="col-md-6 col-xs-12">
+    <ui-gmap-google-map center='gamesNewCtrl.map.center' zoom='gamesNewCtrl.map.zoom'>
+    <ui-gmap-marker ng-repeat="game in gamesNewCtrl.games" coords="{latitude: game.location.lat, longitude: game.location.lng}" idkey='game._id'>
+
+      <ui-gmap-window options="windowOptions" closeClick="closeClick()">
+        {{game.title}}
+      </ui-gmap-window>
+    </ui-gmap-marker>
+    </ui-gmap-google-map>
   </div>
-  <div class="form-group">
-    <textarea class="form-control" placeholder="Content" ng-model="gamesNewCtrl.game.where"></textarea>
+
+  <div class="col-md-6">
+    <form ng-submit="gamesNewCtrl.create()">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Title" ng-model="gamesNewCtrl.game.title">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Location (address)" ng-model="gamesNewCtrl.game.where">
+      </div>
+      <div class="form-group">
+        Start Time: <span>{{gamesNewCtrl.game.start | date:'dd MMM yyyy hh:mm a' }}</span>
+        <br />
+        <input type="datetime-local" ng-model="gamesNewCtrl.game.start"/>
+      </div>
+      <input type="submit" value="Create Game" class="btn btn-block btn-info">
+    </form>
   </div>
-  <div class="form-group">
-    <span>{{gamesNewCtrl.game.start | date:'dd MMM yyyy hh:mm ' }}</span>
-    <input type="datetime-local" ng-model="gamesNewCtrl.game.start"/>
-  </div>
-  <input type="submit" value="Create Game" class="btn btn-block btn-info">
-</form>
+</div>
+<div class="row">
+
+</div>
