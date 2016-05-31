@@ -13,6 +13,9 @@ function GamesEditController ($location, $http, $routeParams, UserService) {
 
   ////
   function is_joined(){
+    if (!vm.game._id) {
+      return false;
+    }
     var joined_keys = vm.game.joined_users.map(function(user) {return user._id;});
     var is_joined = joined_keys.includes(vm.currentUser.user_id);
     return is_joined;
