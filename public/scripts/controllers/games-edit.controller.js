@@ -8,6 +8,7 @@ function GamesEditController ($location, $http, $routeParams, UserService) {
   vm.currentUser = UserService.currentUser();
   vm.is_joined = is_joined;
   vm.map = { center: { latitude: 37.78, longitude: -122.44 }, zoom: 8 };
+  vm.join_game = join_game;
 
   get(); // fetch one game (show)
 
@@ -19,6 +20,9 @@ function GamesEditController ($location, $http, $routeParams, UserService) {
     var joined_keys = vm.game.joined_users.map(function(user) {return user._id;});
     var is_joined = joined_keys.includes(vm.currentUser.user_id);
     return is_joined;
+  }
+  function join_game(){
+    console.log("joined!");
   }
 
   function update() {
