@@ -17,7 +17,7 @@
         ng-show="main.currentUser.isLoggedIn()">Add New Game</a>
     <hr />
   </div>
-  <div class="row" ng-repeat="game in home.games">
+  <div class="row" ng-repeat="game in home.games |  orderBy: 'start' ">
     <hr />
     <p>
       <div class="col-xs-10">
