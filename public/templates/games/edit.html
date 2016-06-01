@@ -16,7 +16,9 @@
   <div class="row">
     <div class="col-xs-10">
       <h2>{{gamesEditCtrl.game.title}}  <span ng-show="gamesEditCtrl.is_joined()" class="glyphicon glyphicon-ok"></span></h2>
-      <p>{{gamesEditCtrl.game.where}}</p>
+      <p>{{gamesEditCtrl.game.where}}</p><br />
+      Start Time: <span>{{gamesEditCtrl.game.start | date:'dd MMM yyyy hh:mm a'}}</span>
+
       <form ng-show="editing" ng-submit="gamesEditCtrl.update()">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Title" ng-model="gamesEditCtrl.game.title">
