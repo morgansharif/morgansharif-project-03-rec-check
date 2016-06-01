@@ -11,9 +11,10 @@ function GamesIndexController ($http) {
 
   next_30_days();
 
-  // filter function
-  vm.dateFilter = dateFilter;
-
+  // run filter function
+  vm.updateFilter = function(){
+    dateFilter(vm.games, vm.filterDate);
+  };
   ////
 
   function dateFilter(games, dateRange) {
