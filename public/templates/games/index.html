@@ -2,9 +2,9 @@
 <hr>
 <div class="row">
   <label>Pick a date!:
-    <select ng-change="home.updateFilter()" ng-model="home.filterDate" ng-options="date[0] for date in home.dateList"></select>
+    <select ng-change="home.updateFilter()" ng-model="home.filterDate" ng-options="date[0] | date:'MMM dd' for date in home.dateList"></select>
   </label><br/>
-  {{home.dateFilter}}
+  {{home.filterDate}}
 
   <div id="date-scroll" class="row">
     <div class="col-xs-1" ng-repeat="date in home.dateList">
