@@ -56,7 +56,7 @@ function GamesEditController ($location, $http, $routeParams, UserService) {
       .then(onUpdateSuccess, onUpdateError);
 
     function onUpdateSuccess(response){
-      $location.path("/games/" + id + "/edit");
+      $location.path("/games/" + id);
     }
 
     function onUpdateError(response){
