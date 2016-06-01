@@ -1,5 +1,19 @@
 <h2>Find a game!</h2>
 <hr>
+<div class="row">
+  <label>Pick a date!:
+    <select ng-change="home.updateFilter()" ng-model="home.filterDate" ng-options="date[0] for date in home.dateList"></select>
+  </label><br/>
+  {{home.dateFilter}}
+
+  <div id="date-scroll" class="row">
+    <div class="col-xs-1" ng-repeat="date in home.dateList">
+
+
+    </div>
+  </div>
+
+</div>
 <div id="games-index-map" class="col-sm-8 col-xs-12">
   <ui-gmap-google-map center='home.map.center' zoom='home.map.zoom'>
   <ui-gmap-marker ng-repeat="game in home.games" coords="{latitude: game.location.lat, longitude: game.location.lng}" idkey='game._id'>
@@ -17,7 +31,7 @@
         ng-show="main.currentUser.isLoggedIn()">Add New Game</a>
     <hr />
   </div>
-  <div class="row" ng-repeat="game in home.games |  orderBy: 'start' ">
+  <div class="row" ng-repeat="game in home.filteredGames |  orderBy: 'start' ">
     <hr />
     <p>
       <div class="col-xs-10">
