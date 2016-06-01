@@ -61,9 +61,12 @@ function configRoutes($routeProvider, $locationProvider, uiGmapGoogleMapApiProvi
       }
     })
     .when('/games/:id', {
-      templateUrl: 'templates/games/show.html',
-      controller: 'GamesShowController',
-      controllerAs: 'gamesShowCtrl'
+      templateUrl: 'templates/games/edit.html',
+      controller: 'GamesEditController',
+      controllerAs: 'gamesEditCtrl',
+      resolve: {
+        loginRequired: loginRequired
+      }
     })
     .otherwise({redirectTo: '/'});
 
