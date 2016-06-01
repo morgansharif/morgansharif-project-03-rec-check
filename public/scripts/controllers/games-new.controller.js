@@ -5,7 +5,9 @@ function GamesNewController ($location, $http) {
   vm.map = { center: {latitude: 37.78, longitude: -122.44 }, zoom: 12 };
   vm.autoAddress = {};
   vm.game = {}; // form data
-
+  //
+  var now = new Date();
+  vm.dateNow = now.toISOString();
   vm.cansubmit = cansubmit;
   function cansubmit(){
   return vm.autoAddress.hasOwnProperty("geometry");
