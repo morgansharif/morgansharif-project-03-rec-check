@@ -1,48 +1,55 @@
 <div class="container">
 
   <div class="row">
-    <div id="games-map" class="col-xs-12">
-      <ui-gmap-google-map center='gamesEditCtrl.map.center' zoom='gamesEditCtrl.map.zoom'>
-      <ui-gmap-marker coords="{latitude: gamesEditCtrl.game.location.lat, longitude: gamesEditCtrl.game.location.lng}" idkey='gamesEditCtrl.game._id'>
-
-        <ui-gmap-window options="windowOptions" closeClick="closeClick()">
-          {{gamesEditCtrl.game.title}}
-        </ui-gmap-window>
-      </ui-gmap-marker>
-      </ui-gmap-google-map>
-    </div>
-  </div>
-
-  <div class="row">
     <div class="col-xs-10">
-      <h2>{{gamesEditCtrl.game.title}}  <span ng-show="gamesEditCtrl.is_joined()" class="glyphicon glyphicon-ok"></span></h2>
-      <p>{{gamesEditCtrl.game.where}}</p><br />
-      Start Time: <span>{{gamesEditCtrl.game.start | date:'dd MMM yyyy hh:mm a'}}</span>
-
-      <form ng-show="editing" ng-submit="gamesEditCtrl.update()">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Title" ng-model="gamesEditCtrl.game.title">
-          <input type="submit" value="Update Game" class="btn btn-block btn-info">
-        </div>
-      </form>
+      <h2><span ng-hide=>{{gamesEditCtrl.game.title}}</span>  <span ng-show="gamesEditCtrl.is_joined()" class="glyphicon glyphicon-ok"></span></h2>
+      <div>
+        <p><span class="glyphicon glyphicon-pushpin"></span> {{gamesEditCtrl.game.where}}</p>
+        <p><span class="glyphicon glyphicon-time"></span>  <span>{{gamesEditCtrl.game.start | date:'MMM dd hh:mm a'}}</span></p>
+        <p><span class="glyphicon glyphicon-user"></span> {{gamesEditCtrl.game.joined_users.length}}</p>
+      </div>
+      <div class="row">
+        <form ng-show="editing"  ng-submit="gamesEditCtrl.update()">
+          <div class="form-group col-sm-5">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Title" ng-model="gamesEditCtrl.game.title" aria-label="Update game name">
+              <div class="input-group-btn">
+                <input type="submit" ng-click="editing=false" value="Update Game" class="btn btn-block btn-info">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
 
-    <div class="col-xl-4">
+
+    <div class="col-xs-4">
       <div ng-show="gamesEditCtrl.isauthor">
-        <a class="btn btn-danger col-xl-2" ng-click="gamesEditCtrl.destroy()">Cancel Game</a>
-        <a ng-show="editing" class="btn btn-primary" ng-href="/">Undo</a>
-        <a ng-hide="editing" class="btn btn-primary" ng-click="editing=true">Edit</a>
+        <a class="btn btn-danger col-xl-2" ng-show="editing" ng-click="gamesEditCtrl.destroy()">Cancel Game</a>
+        <a ng-hide="editing" class="btn btn-primary" ng-click="editing=true"><span class="glyphicon glyphicon-edit"></span></a>
       </div>
     </div>
   </div>
   <div class="row">
-    <button type="button" class="btn btn-success" ng-show="gamesEditCtrl.is_joined()" ng-click="gamesEditCtrl.leave_game()">Leave Game</button>
+    <button type="button" class="btn btn-warning" ng-show="gamesEditCtrl.is_joined()" ng-click="gamesEditCtrl.leave_game()">Leave Game</button>
     <button type="button" class="btn btn-success" ng-show="!gamesEditCtrl.is_joined()" ng-click="gamesEditCtrl.join_game()">Join Game</button>
-    {{gamesEditCtrl.currentUser.user_id}}
-    {{gamesEditCtrl.is_joined()}}
-    {{gamesEditCtrl.game.joined_users}}
-  </div>
 
+
+
+
+
+  </div>
+  <div id="games-map" class="col-xs-12">
+    <ui-gmap-google-map center='gamesEditCtrl.map.center' zoom='gamesEditCtrl.map.zoom'>
+    <ui-gmap-marker coords="{latitude: gamesEditCtrl.game.location.lat, longitude: gamesEditCtrl.game.location.lng}" idkey='gamesEditCtrl.game._id'>
+
+      <ui-gmap-window options="windowOptions" closeClick="closeClick()">
+        {{gamesEditCtrl.game.title}}
+      </ui-gmap-window>
+    </ui-gmap-marker>
+    </ui-gmap-google-map>
+  </div>
+</div>
 
 
 
