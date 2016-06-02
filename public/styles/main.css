@@ -15,6 +15,10 @@ body {
   height: calc(100vh - 200px);
   min-height: 200px;
 }
-#edit-title { 
+#edit-title {
     margin-right: 3px;
+}
+span.glyphicon {
+    vertical-align: middle;
+    margin-top: -5px;
 }
