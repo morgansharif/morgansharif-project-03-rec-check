@@ -15,3 +15,6 @@ body {
   height: calc(100vh - 200px);
   min-height: 200px;
 }
+#edit-title { 
+    margin-right: 3px;
+}
