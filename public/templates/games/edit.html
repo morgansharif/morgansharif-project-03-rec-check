@@ -1,23 +1,13 @@
 <div class="container">
 
   <div class="row">
-    <div id="games-map" class="col-xs-12">
-      <ui-gmap-google-map center='gamesEditCtrl.map.center' zoom='gamesEditCtrl.map.zoom'>
-      <ui-gmap-marker coords="{latitude: gamesEditCtrl.game.location.lat, longitude: gamesEditCtrl.game.location.lng}" idkey='gamesEditCtrl.game._id'>
-
-        <ui-gmap-window options="windowOptions" closeClick="closeClick()">
-          {{gamesEditCtrl.game.title}}
-        </ui-gmap-window>
-      </ui-gmap-marker>
-      </ui-gmap-google-map>
-    </div>
-  </div>
-
-  <div class="row">
     <div class="col-xs-10">
-      <h2>{{gamesEditCtrl.game.title}}  <span ng-show="gamesEditCtrl.is_joined()" class="glyphicon glyphicon-ok"></span></h2>
-      <p>{{gamesEditCtrl.game.where}}</p><br />
-      Start Time: <span>{{gamesEditCtrl.game.start | date:'dd MMM yyyy hh:mm a'}}</span>
+      <h2><span ng-hide=>{{gamesEditCtrl.game.title}}</span>  <span ng-show="gamesEditCtrl.is_joined()" class="glyphicon glyphicon-ok"></span></h2>
+      <p>{{gamesEditCtrl.game.where}}</p>
+
+
+
+      <span class="glyphicon glyphicon-time"></span>  <span>{{gamesEditCtrl.game.start | date:'dd MMM yyyy hh:mm a'}}</span></p>
 
       <form ng-show="editing" ng-submit="gamesEditCtrl.update()">
         <div class="form-group">
@@ -31,7 +21,7 @@
       <div ng-show="gamesEditCtrl.isauthor">
         <a class="btn btn-danger col-xl-2" ng-click="gamesEditCtrl.destroy()">Cancel Game</a>
         <a ng-show="editing" class="btn btn-primary" ng-href="/">Undo</a>
-        <a ng-hide="editing" class="btn btn-primary" ng-click="editing=true">Edit</a>
+        <a ng-hide="editing" class="btn btn-primary" ng-click="editing=true"><span class="glyphicon glyphicon-edit"></span></a>
       </div>
     </div>
   </div>
@@ -42,6 +32,21 @@
     {{gamesEditCtrl.is_joined()}}
     {{gamesEditCtrl.game.joined_users}}
   </div>
+
+
+  <div class="row">
+    <div id="games-map" class="col-xs-12">
+      <ui-gmap-google-map center='gamesEditCtrl.map.center' zoom='gamesEditCtrl.map.zoom'>
+      <ui-gmap-marker coords="{latitude: gamesEditCtrl.game.location.lat, longitude: gamesEditCtrl.game.location.lng}" idkey='gamesEditCtrl.game._id'>
+
+        <ui-gmap-window options="windowOptions" closeClick="closeClick()">
+          {{gamesEditCtrl.game.title}}
+        </ui-gmap-window>
+      </ui-gmap-marker>
+      </ui-gmap-google-map>
+    </div>
+  </div>
+
 
 
 
