@@ -4,9 +4,9 @@
     <div class="col-sm-7">
         <h1><span ng-hide=>{{gamesEditCtrl.game.title}}</span>  <span ng-show="gamesEditCtrl.is_joined()" class="glyphicon glyphicon-ok"></span></h1>
       <div>
-        <p><span class="glyphicon glyphicon-pushpin"></span> {{gamesEditCtrl.game.where}}</p>
-        <p><span class="glyphicon glyphicon-time"></span> <span>{{gamesEditCtrl.game.start | date:'MMM dd'}}</span> <span>{{gamesEditCtrl.game.start | date:'hh:mm a'}}</span></p>
-        <p><span class="glyphicon glyphicon-user"></span> {{gamesEditCtrl.game.joined_users.length}}</p>
+        <h4><span class="glyphicon glyphicon-pushpin"></span> {{gamesEditCtrl.game.where}}</h4>
+        <h4><span class="glyphicon glyphicon-time"></span> <span>{{gamesEditCtrl.game.start | date:'MMM dd'}}</span> <span>{{gamesEditCtrl.game.start | date:'hh:mm a'}}</span></h4>
+        <h4><span class="glyphicon glyphicon-user"></span> {{gamesEditCtrl.game.joined_users.length}}</h4>
       </div>
     </div>
     <div id="game-buttons" class="col-sm-3">
