@@ -1,13 +1,20 @@
 body {
   height: 100vh;
 }
+#arrow{
+  padding-top: 30px;
+}
+.game-title{
+  margin-top: 0px;
+}
 
 #games-index-map .angular-google-map-container {
-  min-height: calc(100vh - 175px);
+  height: 350px;
+  min-height: calc(100vh - 300px);
 }
 
 #games-list {
-  max-height: calc(100vh - 175px);
+  max-height: calc(100vh - 300px);
   overflow-y: scroll
 }
 
@@ -30,4 +37,8 @@ span.glyphicon {
 .nav-icon {
   display: inline-block;
   padding: 0;
+}
+
+.align-top{
+  margin-top: 0px;
 }
