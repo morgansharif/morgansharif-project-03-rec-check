@@ -18,7 +18,8 @@ body {
   overflow-y: scroll
 }
 
-#games-map .angular-google-map-container {
+#game-map .angular-google-map-container {
+  min-width: 50vh;
   height: calc(100vh - 200px);
   min-height: 200px;
 }
@@ -33,7 +34,9 @@ span.glyphicon {
   height: 50px;
   width: 50px;
 }
-
+.no-margin{
+  margin-bottom: 0px;
+}
 .nav-icon {
   display: inline-block;
   padding: 0;
