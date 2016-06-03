@@ -1,46 +1,50 @@
 <div class="container">
-
   <div class="row">
-    <div class="col-sm-7">
-        <h1><span ng-hide=>{{gamesEditCtrl.game.title}}</span>  <span ng-show="gamesEditCtrl.is_joined()" class="glyphicon glyphicon-ok"></span></h1>
-      <div>
-        <h4><span class="glyphicon glyphicon-pushpin"></span> {{gamesEditCtrl.game.where}}</h4>
-        <h4><span class="glyphicon glyphicon-time"></span> <span>{{gamesEditCtrl.game.start | date:'MMM dd'}}</span> <span>{{gamesEditCtrl.game.start | date:'hh:mm a'}}</span></h4>
-        <h4><span class="glyphicon glyphicon-user"></span> {{gamesEditCtrl.game.joined_users.length}}</h4>
-      </div>
+    <div class="row">
+      <h1><span ng-hide=>{{gamesEditCtrl.game.title}}</span>  <span ng-show="gamesEditCtrl.is_joined()" class="glyphicon glyphicon-ok"></span></h1>
     </div>
-    <div id="game-buttons" class="col-sm-3">
-      <div class="row">
-          <form id="edit-title" ng-show="editing"  ng-submit="gamesEditCtrl.update()">
-            <div class="form-group">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Title" ng-model="gamesEditCtrl.game.title" aria-label="Update game name">
-                <div class="input-group-btn">
-                  <input type="submit" ng-click="editing=false" value="Update" class="btn btn-block btn-info">
-                </div>
-              </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div>
+          <h4><span class="glyphicon glyphicon-pushpin"></span> {{gamesEditCtrl.game.where}}</h4>
+          <h4><span class="glyphicon glyphicon-time"></span> <span>{{gamesEditCtrl.game.start | date:'MMM dd'}}</span> <span>{{gamesEditCtrl.game.start | date:'hh:mm a'}}</span></h4>
+          <h4><span class="glyphicon glyphicon-user"></span> {{gamesEditCtrl.game.joined_users.length}}</h4>
+        </div>
+      </div>
+      <div class="col-sm-7">
+        <div class="row">
+          <div ng-show="gamesEditCtrl.isauthor">
+            <div class="col-xs-2">
+              <a class="btn btn-primary" ng-click="editing=!editing"><span class="glyphicon glyphicon-edit"></span></a>
             </div>
-          </form>
-      </div>
-    </div>
-
-    <div class="col-sm-2">
-      <div class="row">
-
-        <div ng-show="gamesEditCtrl.isauthor">
-          <a class="btn btn-primary" ng-click="editing=!editing"><span class="glyphicon glyphicon-edit"></span></a>
-          <a class="btn btn-danger col-xl-2" ng-show="editing" ng-click="gamesEditCtrl.destroy()">Cancel Game</a>
+            <div class="col-xs-10">
+              <form id="edit-title" ng-show="editing"  ng-submit="gamesEditCtrl.update()">
+                <div class="form-group no-margin">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Title" ng-model="gamesEditCtrl.game.title" aria-label="Update game name">
+                    <div class="input-group-btn">
+                      <input type="submit" ng-click="editing=false" value="Update" class="btn btn-block btn-info">
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
         <div class="row">
-          <button type="button" class="btn btn-warning" ng-show="gamesEditCtrl.is_joined()" ng-click="gamesEditCtrl.leave_game()">Leave</button>
-          <button type="button" class="btn btn-success" ng-show="!gamesEditCtrl.is_joined()" ng-click="gamesEditCtrl.join_game()">Join</button>
+          <div class="col-xs-2">
+            <button type="button" class="btn btn-warning" ng-show="gamesEditCtrl.is_joined()" ng-click="gamesEditCtrl.leave_game()"><span class="glyphicon glyphicon-minus"></span></button>
+            <button type="button" class="btn btn-success" ng-show="!gamesEditCtrl.is_joined()" ng-click="gamesEditCtrl.join_game()"><span class="glyphicon glyphicon-plus"></span></button>
+          </div>
+          <div class="col-xs-2">
+            <a class="btn btn-danger col-xl-2" ng-show="editing" ng-click="gamesEditCtrl.destroy()">Cancel Game</a>
+          </div>
         </div>
       </div>
-  </div>
+    </div>
   <div id="game-map" class="col-xs-12">
     <ui-gmap-google-map center='gamesEditCtrl.map.center' zoom='gamesEditCtrl.map.zoom'>
     <ui-gmap-marker coords="{latitude: gamesEditCtrl.game.location.lat, longitude: gamesEditCtrl.game.location.lng}" idkey='gamesEditCtrl.game._id'>
-
       <ui-gmap-window options="windowOptions" closeClick="closeClick()">
         {{gamesEditCtrl.game.title}}
       </ui-gmap-window>
