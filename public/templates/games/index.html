@@ -20,12 +20,13 @@
     <p>
       <div class="col-xs-10">
         <a ng-href="/games/{{game._id}}">
-          <span>{{game.title}}</span><br />
+          <h3 class="game-title"><span>{{game.title}}</span></h3>
         </a>
-        {{game.location.lat}}, {{game.location.lng}}
-
-        <span>{{game.where}}</span><br />
-        <span>{{game.start | date:'MMM dd hh:mm a' }}</span>
+        <p>
+          <span class="glyphicon glyphicon-pushpin"></span> - {{game.where}} <br />
+          <span class="glyphicon glyphicon-time"></span> - <span>{{game.start | date:'MMM dd hh:mm a'}}</span> <br />
+          <span class="glyphicon glyphicon-user"></span> - {{game.joined_users.length}}
+        </p>
       </div>
     </p>
     <a ng-href="/games/{{game._id}}">
