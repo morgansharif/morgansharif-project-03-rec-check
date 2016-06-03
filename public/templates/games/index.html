@@ -6,17 +6,9 @@
     <select class="form-control" ng-change="home.updateFilter()" ng-model="home.filterDate" ng-options="date[0] | date:'MMM dd' for date in home.dateList"></select>
   </div>
 </div>
-<hr>
-<div id="games-index-map" class="col-sm-8 col-xs-12">
-  <ui-gmap-google-map center='home.map.center' zoom='home.map.zoom'>
-  <ui-gmap-marker ng-repeat="game in home.games" coords="{latitude: game.location.lat, longitude: game.location.lng}" idkey='game._id'>
 
-    <ui-gmap-window options="windowOptions" closeClick="closeClick()">
-      {{game.title}}
-    </ui-gmap-window>
-  </ui-gmap-marker>
-  </ui-gmap-google-map>
-</div>
+<hr>
+
 <div id="games-list" ng-if="home.games.length" class="col-sm-4 col-xs-12">
   <div class="row">
     <p ng-if="!home.games.length">No games yet.</p>
@@ -43,4 +35,16 @@
       </div>
     </a>
   </div>
+</div>
+
+
+<div id="games-index-map" class="col-sm-8 col-xs-12">
+  <ui-gmap-google-map center='home.map.center' zoom='home.map.zoom'>
+  <ui-gmap-marker ng-repeat="game in home.games" coords="{latitude: game.location.lat, longitude: game.location.lng}" idkey='game._id'>
+
+    <ui-gmap-window options="windowOptions" closeClick="closeClick()">
+      {{game.title}}
+    </ui-gmap-window>
+  </ui-gmap-marker>
+  </ui-gmap-google-map>
 </div>
