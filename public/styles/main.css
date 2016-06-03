@@ -22,3 +22,12 @@ span.glyphicon {
     vertical-align: middle;
     margin-top: -5px;
 }
+.navbar-brand img {
+  height: 50px;
+  width: 50px;
+}
+
+.nav-icon {
+  display: inline-block;
+  padding: 0;
+}
