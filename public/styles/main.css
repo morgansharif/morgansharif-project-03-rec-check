@@ -3,11 +3,13 @@ body {
 }
 
 #games-index-map .angular-google-map-container {
-  min-height: calc(100vh - 300px);
+  height: 350px;
+  min-height: calc(50vh - 60px);
 }
 
 #games-list {
-  max-height: calc(100vh - 300px);
+  height: 350px;
+  min-height: calc(50vh - 60px);
   overflow-y: scroll
 }
 
