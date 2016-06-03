@@ -6,19 +6,7 @@
     <select class="form-control" ng-change="home.updateFilter()" ng-model="home.filterDate" ng-options="date[0] | date:'MMM dd' for date in home.dateList"></select>
   </div>
 </div>
-
 <hr>
-<div class="row">
-  {{home.filterDate}}
-
-  <div id="date-scroll" class="row">
-    <div class="col-xs-1" ng-repeat="date in home.dateList">
-
-
-    </div>
-  </div>
-
-</div>
 <div id="games-index-map" class="col-sm-8 col-xs-12">
   <ui-gmap-google-map center='home.map.center' zoom='home.map.zoom'>
   <ui-gmap-marker ng-repeat="game in home.games" coords="{latitude: game.location.lat, longitude: game.location.lng}" idkey='game._id'>
