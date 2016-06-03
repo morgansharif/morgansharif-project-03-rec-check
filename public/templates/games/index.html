@@ -40,7 +40,7 @@
 
 <div id="games-index-map" class="col-sm-8 col-xs-12">
   <ui-gmap-google-map center='home.map.center' zoom='home.map.zoom'>
-  <ui-gmap-marker ng-repeat="game in home.games" coords="{latitude: game.location.lat, longitude: game.location.lng}" idkey='game._id'>
+  <ui-gmap-marker ng-repeat="game in home.filteredGames" coords="{latitude: game.location.lat, longitude: game.location.lng}" idkey='game._id'>
 
     <ui-gmap-window options="windowOptions" closeClick="closeClick()">
       {{game.title}}
