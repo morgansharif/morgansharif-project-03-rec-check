@@ -18,7 +18,7 @@ body {
   overflow-y: scroll
 }
 
-#games-map .angular-google-map-container {
+#game-map .angular-google-map-container {
   height: calc(100vh - 200px);
   min-height: 200px;
 }
