@@ -1,9 +1,14 @@
-<h2>Find a game!</h2>
+<div class="row">
+  <div class="col-xs-6">
+    <h2 class="align-top" >Find a game!</h2>
+  </div>
+  <div class="col-xs-6">
+    <select class="form-control" ng-change="home.updateFilter()" ng-model="home.filterDate" ng-options="date[0] | date:'MMM dd' for date in home.dateList"></select>
+  </div>
+</div>
+
 <hr>
 <div class="row">
-  <label>Pick a date!:
-    <select ng-change="home.updateFilter()" ng-model="home.filterDate" ng-options="date[0] | date:'MMM dd' for date in home.dateList"></select>
-  </label><br/>
   {{home.filterDate}}
 
   <div id="date-scroll" class="row">
