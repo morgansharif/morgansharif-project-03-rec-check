@@ -34,7 +34,9 @@ span.glyphicon {
   height: 50px;
   width: 50px;
 }
-
+.no-margin{
+  margin-bottom: 0px;
+}
 .nav-icon {
   display: inline-block;
   padding: 0;
