@@ -20,7 +20,7 @@ body {
 
 #game-map .angular-google-map-container {
   min-width: 50vh;
-  height: calc(100vh - 200px);
+  height: calc(100vh - 300px);
   min-height: 200px;
 }
 #edit-title {
