@@ -7,14 +7,13 @@
   </div>
 </div>
 
-<hr>
+<hr />
 
 <div id="games-list" ng-if="home.games.length" class="col-sm-4 col-xs-12">
   <div class="row">
     <p ng-if="!home.games.length">No games yet.</p>
     <a class="btn btn-primary btn-block" href="/games/new"
         ng-show="main.currentUser.isLoggedIn()">Add New Game</a>
-    <hr />
   </div>
   <div class="row" ng-repeat="game in home.filteredGames |  orderBy: 'start' ">
     <hr />
@@ -30,8 +29,8 @@
       </div>
     </p>
     <a ng-href="/games/{{game._id}}">
-      <div id="arrow" class="col-xs-2">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <div class="col-xs-2">
+        <span id="arrow" class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
       </div>
     </a>
   </div>
