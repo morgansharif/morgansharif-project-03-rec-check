@@ -4,6 +4,9 @@ body {
 #arrow{
   padding-top: 30px;
 }
+.game-title{
+  margin-top: 0px;
+}
 
 #games-index-map .angular-google-map-container {
   height: 350px;
