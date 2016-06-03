@@ -40,20 +40,19 @@
 
 <div id="games-index-map" class="col-sm-8 col-xs-12">
   <ui-gmap-google-map center='home.map.center' zoom='home.map.zoom'>
-  <ui-gmap-marker ng-repeat="game in home.filteredGames" coords="{latitude: game.location.lat, longitude: game.location.lng}" idkey='game._id'>
-
-    <ui-gmap-window options="windowOptions" closeClick="closeClick()">
-      <div>
-        <a ng-href="/games/{{game._id}}">
-          <h3 class="game-title"><span>{{game.title}}</span></h3>
-        </a>
-        <p>
-          <span class="glyphicon glyphicon-pushpin"></span> - {{game.where}} <br />
-          <span class="glyphicon glyphicon-time"></span> - <span>{{game.start | date:'MMM dd hh:mm a'}}</span> <br />
-          <span class="glyphicon glyphicon-user"></span> - {{game.joined_users.length}}
-        </p>
-      </div>
-    </ui-gmap-window>
-  </ui-gmap-marker>
+    <ui-gmap-marker ng-repeat="game in home.filteredGames" coords="{latitude: game.location.lat, longitude: game.location.lng}" idkey='game._id'>
+      <ui-gmap-window options="windowOptions" closeClick="closeClick()">
+        <div>
+          <a ng-href="/games/{{game._id}}">
+            <h3 class="game-title"><span>{{game.title}}</span></h3>
+          </a>
+          <p>
+            <span class="glyphicon glyphicon-pushpin"></span> - {{game.where}} <br />
+            <span class="glyphicon glyphicon-time"></span> - <span>{{game.start | date:'MMM dd hh:mm a'}}</span> <br />
+            <span class="glyphicon glyphicon-user"></span> - {{game.joined_users.length}}
+          </p>
+        </div>
+      </ui-gmap-window>
+    </ui-gmap-marker>
   </ui-gmap-google-map>
 </div>
