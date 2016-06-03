@@ -1,13 +1,14 @@
 {
   "name": "reccheck",
-  "version": "0.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "An app to help users find and create local pickup games.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "bower install"
   },
-  "author": "",
+  "author": "Morgan Sharif",
   "license": "",
   "dependencies": {
     "bcryptjs": "^2.3.0",
