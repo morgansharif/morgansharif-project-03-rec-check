@@ -8,8 +8,7 @@ body {
 }
 
 #games-list {
-  height: 350px;
-  min-height: calc(50vh - 60px);
+  max-height: calc(50vh - 60px);
   overflow-y: scroll
 }
 
