@@ -34,19 +34,18 @@ function GamesIndexController ($http) {
 
   // builds array of start/end times for the next 30 days to be used for filter
   function next_30_days(){
+    // get current date
     var today = new Date();
     var tempArr = [];
-    // console.log("TODAY: " + today);
+    // pull date, month, and year vals from today's date
     var year = today.getFullYear();
     var month = today.getMonth();
     var date = today.getDate();
+    // assemble an array of date ranges for today through the next 30 days
     for(var i=0; i<30; i++){
-      var this_day= new Date(year, month, date + i);
-      var day_end = new Date(year, month, date + i, 23, 59, 59, 999);
-      tempArr.push([this_day, day_end]);
-      // console.log("___day "+ (i + 1) +"___");
-      // console.log("<0> " + this_day);
-      // console.log("<1> " + day_end);
+      var day_start = new Date(year, month, date + i);
+      var day_end   = new Date(year, month, date + i, 23, 59, 59, 999);
+      tempArr.push([day_start, day_end]);
     }
     vm.dateList = tempArr;
     vm.filterDate= tempArr[0];
